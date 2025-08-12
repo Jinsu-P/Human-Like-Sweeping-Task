@@ -1,8 +1,8 @@
 ---
 layout: ../layouts/Layout.astro
-title: Research Project Page Template
+title: Human-Like Sweeping with Collaborative Robots via Trajectory Modeling from User Demonstrations and Language Models
 description: Simple project page template for your research paper, built with Astro and Tailwind CSS
-favicon: favicon.svg
+favicon: iCAT_logo.svg
 thumbnail: screenshot-light.png
 ---
 
@@ -19,6 +19,8 @@ import LaTeX from "../components/LaTeX.astro";
 import { ImageComparison } from "../components/ImageComparison.tsx";
 
 import outside from "../assets/outside.mp4";
+import demo from "../assets/demo_sweep.mp4";
+import scenario1 from "../assets/animation_execution_plot.mp4";
 import transformer from "../assets/transformer.webp";
 import Splat from "../components/Splat.tsx"
 import dogsDiffc from "../assets/dogs-diffc.png"
@@ -33,35 +35,41 @@ export const components = {pre: CodeBlock, table: Table}
   title={frontmatter.title}
   authors={[
     {
-      name: "Roman Hauksson",
-      url: "https://roman.technology",
-      institution: "Independent",
-      notes: ["*", "†"],
+      name: "Jin-su Park",
+      //url: "https://roman.technology",
+      notes: ["1*"],
     },
     {
-      name: "Author Two",
-      institution: "Institution Two",
-      notes: ["*", "†"],
+      name: "Sanghon Song",
+      //institution: "Institution Two",
+      notes: ["1"],
     },
     {
-      name: "Author Three",
-      institution: "Institution Three",
-      notes: ["†"],
+      name: "Jungwoo Kim",
+      //institution: "Institution Three",
+      notes: ["1"],
     },
     {
-      name: "Author Four",
-      institution: "Institution Four",
+      name: "Dongyeop Kang",
+      notes: ["2"],
     },
+    {
+      name: "Jeyoun Dong",
+      notes: ["2"],
+    },
+    {
+      name: "Chan-eun Park",
+      notes: ["1†"]
+    }
   ]}
-  conference="Conference Name"
   notes={[
     {
-      symbol: "*",
-      text: "author note one",
+      symbol: "1",
+      text: "Kyungpook National University",
     },
     {
-      symbol: "†",
-      text: "author note two",
+      symbol: "2",
+      text: "Electronic and Telecommunications Research Institute",
     },
   ]}
   links={[
@@ -72,7 +80,7 @@ export const components = {pre: CodeBlock, table: Table}
     },
     {
       name: "Code",
-      url: "https://github.com/RomanHauksson/academic-project-astro-template",
+      url: "",
       icon: "ri:github-line",
     },
     {
@@ -80,23 +88,79 @@ export const components = {pre: CodeBlock, table: Table}
       url: "",
       icon: "academicons:arxiv",
     },
-    {
-      name: "Bluesky",
-      url: "",
-      icon: "ri:bluesky-line"
-    }
   ]}
   />
 
-<Video source={outside} />
+<Video source={demo} />
 
 <HighlightedSection>
 
 ## Abstract
 
-This is a live demo for a template you can use to create a simple project page for your research paper. See the code for the template and instructions on how to use it yourself [here](https://github.com/RomanHauksson/academic-project-astro-template). It's made with the [Astro web framework](https://astro.build/) and styled with [Tailwind CSS](https://tailwindcss.com/). You write the content in [MDX](https://mdxjs.com/), which enables markdown formatting like **bold**, _italics_, and ~strikethrough~, as well as custom components like <SmallCaps>small caps.</SmallCaps>
+This study proposes a trajectory modeling framework using user-demonstrated motion for collaborative robots to perform human-like sweeping tasks. By collecting the robot's motion data through a remote controller, we modeled the sweeping motion with a polynomial dynamical system (PLYDS). Additionally, we used large language models (LLMs) to specify sweeping tasks via natural language. Our framework allows users to adjust the robot's behavior without requiring any programming or domain expertise. Experimental results using an industrial collaborative robot demonstrated that the proposed approach not only produced human-like sweeping motions, but also enabled non-expert users to operate the system intuitively.
 
 </HighlightedSection>
+
+## Motivation
+
+Sweeping tasks in outdoor environments such as road cleaning and industrial complexes are essential for ensuring worker safety and maintaining public hygiene. However, due to challenging weather conditions, the risk of traffic accidents, insufficient protective equipment, and a shortage of labor, such tasks are often hazardous and difficult for humans to perform directly.
+As a result, there is a growing need to automate these operations using collaborative robots.
+In particular, a teleoperation-based, programming-less framework is required to enable non-expert users to intuitively control the robot.
+In our previous study, we proposed a **waypoint-based trajectory generation algorithm using a handheld controller and a mobile application**.
+Usability evaluations demonstrated the effectiveness of this method in improving the accessibility of collaborative robot control. However, the approach was limited in its ability to express diverse motions and lacked flexibility in adapting to dynamic envirionment changes.
+To address these limitations, the present study proposes a framework that enables collaborative robots to perform sweeping tasks more naturally and realistically by **modeling human motion using a Polynomial Dynamical System (PLYDS)** and supporting intuitive **trajectory modification through a Large Language Model (LLM)-based** natrual language interface.
+
+## Experiments
+
+We used a 6-DoF robot (Neuromeka Indy7) and a remote controller (HTC Vive Pro Controller) to collect 100 sweeping demonstrations, which were then used to train the PLYDS model.
+
+**Change the number of sweep**
+<TwoColumns>
+  <Figure slot="left">
+    <Video slot="figure" source={scenario1} />
+    <span slot="caption">Take a look at this YouTube video.</span>
+  </Figure>
+  <Figure slot="right">
+    <Splat slot="figure" client:idle />
+    <span slot="caption">Now look at this <a href="https://en.wikipedia.org/wiki/Gaussian_splatting">Gaussian splat</a>, rendered with a React component.</span>
+  </Figure>
+</TwoColumns>
+
+**Move the entire trajectory**
+<TwoColumns>
+  <Figure slot="left">
+    <YouTubeVideo slot="figure" videoId="wjZofJX0v4M" />
+    <span slot="caption">Take a look at this YouTube video.</span>
+  </Figure>
+  <Figure slot="right">
+    <Splat slot="figure" client:idle />
+    <span slot="caption">Now look at this <a href="https://en.wikipedia.org/wiki/Gaussian_splatting">Gaussian splat</a>, rendered with a React component.</span>
+  </Figure>
+</TwoColumns>
+
+**Change the starting point*
+<TwoColumns>
+  <Figure slot="left">
+    <YouTubeVideo slot="figure" videoId="wjZofJX0v4M" />
+    <span slot="caption">Take a look at this YouTube video.</span>
+  </Figure>
+  <Figure slot="right">
+    <Splat slot="figure" client:idle />
+    <span slot="caption">Now look at this <a href="https://en.wikipedia.org/wiki/Gaussian_splatting">Gaussian splat</a>, rendered with a React component.</span>
+  </Figure>
+</TwoColumns>
+
+**Change the motion speed**
+<TwoColumns>
+  <Figure slot="left">
+    <YouTubeVideo slot="figure" videoId="wjZofJX0v4M" />
+    <span slot="caption">Take a look at this YouTube video.</span>
+  </Figure>
+  <Figure slot="right">
+    <Splat slot="figure" client:idle />
+    <span slot="caption">Now look at this <a href="https://en.wikipedia.org/wiki/Gaussian_splatting">Gaussian splat</a>, rendered with a React component.</span>
+  </Figure>
+</TwoColumns>
 
 ## Figures
 
@@ -148,6 +212,7 @@ You can also add LaTeX formulas, rendered during the build process using [KaTeX]
 
 <LaTeX formula="\int_a^b f(x) dx" />
 
+
 ## Tables
 
 You can add simple tables using [GitHub Flavored Markdown syntax](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables):
@@ -159,13 +224,14 @@ You can add simple tables using [GitHub Flavored Markdown syntax](https://docs.g
 | DistilBERT | 0.86 | 0.84 | 2.1 |
 | XLNet | 0.90 | 0.89 | 6.8 |
 
+
+
 ## BibTeX citation
 
 ```bibtex
-@misc{roman2024academic,
-  author = "{Roman Hauksson}",
-  title = "Academic Project Page Template",
-  year = "2024",
-  howpublished = "\url{https://research-template.roman.technology}",
+@article{park2025,
+  author = "{Park, Jin-su and Song, Sanghun and Kim, Jungwoo and Kang, Dongyeop and Dong, Jeyoun and Park, Cahn-eun}",
+  title = "Human-Like Sweeping with Collaborative Robots via Trajectory Modeling from User Demonstrations and Language Models",
+  year = "2025",
 }
 ```
