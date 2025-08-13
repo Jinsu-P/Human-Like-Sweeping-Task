@@ -19,6 +19,9 @@ import LaTeX from "../components/LaTeX.astro";
 import { ImageComparison } from "../components/ImageComparison.tsx";
 
 import demo from "../assets/demo_sweep.mp4";
+import demonstration_vel from "../assets/demonstration_vel.png";
+import human_sweep_ori from "../assets/human_sweeping_ori.png";
+import human_sweep_change from "../assets/human_sweeping_change.png";
 import scenario1 from "../assets/animation_execution_plot.mp4";
 import transformer from "../assets/transformer.webp";
 import Splat from "../components/Splat.tsx"
@@ -109,11 +112,32 @@ In our previous study, we proposed a **waypoint-based trajectory generation algo
 Usability evaluations demonstrated the effectiveness of this method in improving the accessibility of collaborative robot control. However, the approach was limited in its ability to express diverse motions and lacked flexibility in adapting to dynamic envirionment changes.
 To address these limitations, the present study proposes a framework that enables collaborative robots to perform sweeping tasks more naturally and realistically by **modeling human motion using a Polynomial Dynamical System (PLYDS)** and supporting intuitive **trajectory modification through a Large Language Model (LLM)-based** natrual language interface.
 
+## Human Sweeping Motion
+
+Velocity data were obtained from actual human sweeping demonstrations performed via a collaborative robot and a remote controller.
+The measured profiles exhibited a shape closely matching a sine wave, which motivated teh selection fo a sine-based velocity profile in this study.
+
+<Figure>
+  <Image slot="figure" source={demonstration_vel} altText="Human sweeping demonstration velocity profile" />
+  <span slot="caption">Human sweeping demonstration velocity profile</span>
+</Figure>
+
+<TwoColumns>
+  <Figure slot="left">
+    <Image slot="figure" source={human_sweep_ori} altText="Original robot's sweeping motion velocity" />
+    <span slot="caption">Original robot's sweeping motion velocity</span>
+  </Figure>
+  <Figure slot="right">
+    <Image slot="figure" source={human_sweep_change} altText="Human-Like sweeping motion velocity" />
+    <span slot="caption">Human-Like sweeping motion velocity</span>
+  </Figure>
+</TwoColumns>
+
 ## Experiments
 
 We used a 6-DoF robot (Neuromeka Indy7) and a remote controller (HTC Vive Pro Controller) to collect 100 sweeping demonstrations, which were then used to train the PLYDS model.
 
-**Change the number of sweep**
+**Adjust the Number of Passes in the Sweeping Trajectory**
 <TwoColumns>
   <Figure slot="left">
     <Video slot="figure" source={scenario1} />
@@ -125,7 +149,7 @@ We used a 6-DoF robot (Neuromeka Indy7) and a remote controller (HTC Vive Pro Co
   </Figure>
 </TwoColumns>
 
-**Move the entire trajectory**
+**Move the Entire Sweeping Trajectory**
 <TwoColumns>
   <Figure slot="left">
     <YouTubeVideo slot="figure" videoId="wjZofJX0v4M" />
@@ -137,7 +161,7 @@ We used a 6-DoF robot (Neuromeka Indy7) and a remote controller (HTC Vive Pro Co
   </Figure>
 </TwoColumns>
 
-**Change the starting point**
+**Modify the Starting Point of the Sweeping Trajectory**
 <TwoColumns>
   <Figure slot="left">
     <YouTubeVideo slot="figure" videoId="wjZofJX0v4M" />
@@ -149,7 +173,7 @@ We used a 6-DoF robot (Neuromeka Indy7) and a remote controller (HTC Vive Pro Co
   </Figure>
 </TwoColumns>
 
-**Change the motion speed**
+**Adjust the Sweeping Motion Speed**
 <TwoColumns>
   <Figure slot="left">
     <YouTubeVideo slot="figure" videoId="wjZofJX0v4M" />
