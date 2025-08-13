@@ -26,6 +26,8 @@ import overall_exp from "../assets/overall.png";
 import teleoperation_vive from "../assets/vive_teleoperation.png";
 import exp_first from "../assets/first_step.png";
 import exp_second from "../assets/second_step.png";
+import original_indy7 from "../assets/original_indy7_ver2.mp4";
+import original_3D from "../assets/original_tpos.mp4";
 import scenario1 from "../assets/animation_execution_plot.mp4";
 import transformer from "../assets/transformer.webp";
 import Splat from "../components/Splat.tsx"
@@ -152,6 +154,19 @@ The measured profiles exhibited a shape closely matching a sine wave, which moti
 
 We used a 6-DoF robot (Neuromeka Indy7) and a remote controller (HTC Vive Pro Controller) to collect 100 sweeping demonstrations, which were then used to train the PLYDS model.
 
+**Basic Sweeping Task of Indy7**
+
+<TwoColumns>
+  <Figure slot="left">
+    <Video slot="figure" source={original_indy7} />
+    <span slot="caption">Basic sweeping task</span>
+  </Figure>
+  <Figure slot="right">
+    <Video slot="figure" source={original_3D} />
+    <span slot="caption">3D Visualization</span>
+  </Figure>
+</TwoColumns>
+
 **Adjust the Number of Passes in the Sweeping Trajectory**
 <TwoColumns>
   <Figure slot="left">
@@ -216,7 +231,7 @@ PLYDS model was used to execute sweeping motions between the waypoints
   <span slot="caption">Sweeping Trajectory Modification</span>
 </Figure>
 
-When additional cleaning was required, user input (e.g., "Sweep deeper, one more time")
+When additional cleaning was required, user input (e.g., "Sweep deeper, one more time").
 A new trajectory was generated and executed without any demonstrations
 
 
