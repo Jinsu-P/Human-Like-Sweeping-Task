@@ -17,5 +17,7 @@ export default defineConfig({
         dark: 'github-dark',
       },
     }
-  }
+  },
+  site: 'https://Jinsu-P.github.io',
+  base: '/Human-Like-Sweeping-Task',
 });
