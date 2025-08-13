@@ -28,6 +28,14 @@ import exp_first from "../assets/first_step.png";
 import exp_second from "../assets/second_step.png";
 import original_indy7 from "../assets/original_indy7_ver2.mp4";
 import original_3D from "../assets/original_tpos_2.mp4";
+import sweep_num from "../assets/1st_indy7.mp4";
+import sweep_num_3D from "../assets/1st_tpos.mp4";
+import sweep_move from "../assets/2nd_indy7.mp4";
+import sweep_move_3D from "../assets/2nd_tpos.mp4";
+import sweep_start_point from "../assets/3rd_indy7.mp4";
+import sweep_start_point_3D from "../assets/3rd_tpos.mp4";
+import sweep_speed from "../assets/4th_indy7.mp4";
+import sweep_speed_3D from "../assets/4th_tpos.mp4";
 import scenario1 from "../assets/animation_execution_plot.mp4";
 import transformer from "../assets/transformer.webp";
 import Splat from "../components/Splat.tsx"
@@ -168,50 +176,54 @@ We used a 6-DoF robot (Neuromeka Indy7) and a remote controller (HTC Vive Pro Co
 </TwoColumns>
 
 **Adjust the Number of Passes in the Sweeping Trajectory**
+
 <TwoColumns>
   <Figure slot="left">
-    <Video slot="figure" source={scenario1} />
-    <span slot="caption">Take a look at this YouTube video.</span>
+    <Video slot="figure" source={sweep_num} />
+    <span slot="caption">Number of passes : 3 -> 4 </span>
   </Figure>
   <Figure slot="right">
-    <Splat slot="figure" client:idle />
-    <span slot="caption">Now look at this <a href="https://en.wikipedia.org/wiki/Gaussian_splatting">Gaussian splat</a>, rendered with a React component.</span>
+    <Video slot="figure" source={sweep_num_3D} />
+    <span slot="caption">3D Visualization</span>
   </Figure>
 </TwoColumns>
 
 **Move the Entire Sweeping Trajectory**
+
 <TwoColumns>
   <Figure slot="left">
-    <YouTubeVideo slot="figure" videoId="wjZofJX0v4M" />
-    <span slot="caption">Take a look at this YouTube video.</span>
+    <Video slot="figure" source={sweep_move} />
+    <span slot="caption">Sweep Trajectory move to -1.5cm(z axis) </span>
   </Figure>
   <Figure slot="right">
-    <Splat slot="figure" client:idle />
-    <span slot="caption">Now look at this <a href="https://en.wikipedia.org/wiki/Gaussian_splatting">Gaussian splat</a>, rendered with a React component.</span>
+    <Video slot="figure" source={sweep_move_3D} />
+    <span slot="caption">3D Visualization</span>
   </Figure>
 </TwoColumns>
 
 **Modify the Starting Point of the Sweeping Trajectory**
+
 <TwoColumns>
   <Figure slot="left">
-    <YouTubeVideo slot="figure" videoId="wjZofJX0v4M" />
-    <span slot="caption">Take a look at this YouTube video.</span>
+    <Video slot="figure" source={sweep_start_point} />
+    <span slot="caption">Starting Point modify to 2cm(x axis) </span>
   </Figure>
   <Figure slot="right">
-    <Splat slot="figure" client:idle />
-    <span slot="caption">Now look at this <a href="https://en.wikipedia.org/wiki/Gaussian_splatting">Gaussian splat</a>, rendered with a React component.</span>
+    <Video slot="figure" source={sweep_start_point_3D} />
+    <span slot="caption">3D Visualization</span>
   </Figure>
 </TwoColumns>
 
 **Adjust the Sweeping Motion Speed**
+
 <TwoColumns>
   <Figure slot="left">
-    <YouTubeVideo slot="figure" videoId="wjZofJX0v4M" />
-    <span slot="caption">Take a look at this YouTube video.</span>
+    <Video slot="figure" source={sweep_speed} />
+    <span slot="caption">Sweeping motion speed x1.5 </span>
   </Figure>
   <Figure slot="right">
-    <Splat slot="figure" client:idle />
-    <span slot="caption">Now look at this <a href="https://en.wikipedia.org/wiki/Gaussian_splatting">Gaussian splat</a>, rendered with a React component.</span>
+    <Video slot="figure" source={sweep_speed_3D} />
+    <span slot="caption">3D Visualization</span>
   </Figure>
 </TwoColumns>
 
