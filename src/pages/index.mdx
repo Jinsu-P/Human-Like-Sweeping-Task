@@ -22,6 +22,10 @@ import demo from "../assets/demo_sweep.mp4";
 import demonstration_vel from "../assets/demonstration_vel.png";
 import human_sweep_ori from "../assets/human_sweeping_ori.png";
 import human_sweep_change from "../assets/human_sweeping_change.png";
+import overall_exp from "../assets/overall.png";
+import teleoperation_vive from "../assets/vive_teleoperation.png";
+import exp_first from "../assets/first_step.png";
+import exp_second from "../assets/second_step.png";
 import scenario1 from "../assets/animation_execution_plot.mp4";
 import transformer from "../assets/transformer.webp";
 import Splat from "../components/Splat.tsx"
@@ -135,6 +139,17 @@ The measured profiles exhibited a shape closely matching a sine wave, which moti
 
 ## Experiments
 
+<TwoColumns>
+  <Figure slot="left">
+    <Image slot="figure" source={overall_exp} altText="Overview" />
+    <span slot="caption">Overview</span>
+  </Figure>
+  <Figure slot="right">
+    <Image slot="figure" source={teleoperation_vive} altText="Collecting sweeping trajectory data" />
+    <span slot="caption">Collecting sweeping trajectory data</span>
+  </Figure>
+</TwoColumns>
+
 We used a 6-DoF robot (Neuromeka Indy7) and a remote controller (HTC Vive Pro Controller) to collect 100 sweeping demonstrations, which were then used to train the PLYDS model.
 
 **Adjust the Number of Passes in the Sweeping Trajectory**
@@ -184,6 +199,32 @@ We used a 6-DoF robot (Neuromeka Indy7) and a remote controller (HTC Vive Pro Co
     <span slot="caption">Now look at this <a href="https://en.wikipedia.org/wiki/Gaussian_splatting">Gaussian splat</a>, rendered with a React component.</span>
   </Figure>
 </TwoColumns>
+
+**Main Scenario**
+
+<Figure>
+  <Image slot="figure" source={exp_first} altText="Applying PLYDS model to Sweeping Task" />
+  <span slot="caption">Applying PLYDS model to Sweeping Task</span>
+</Figure>
+
+After checking the floor condition, four waypoints wrer designated using the Vive Controller to define the desired workspace.
+Waypoint-based trajectory generation algorithm was then used to interpolate the entire trajectory
+PLYDS model was used to execute sweeping motions between the waypoints
+
+<Figure>
+  <Image slot="figure" source={exp_second} altText="Sweeping Trajectory Modification" />
+  <span slot="caption">Sweeping Trajectory Modification</span>
+</Figure>
+
+When additional cleaning was required, user input (e.g., "Sweep deeper, one more time")
+A new trajectory was generated and executed without any demonstrations
+
+
+## Conclusion
+
+In this study, we proposed a trajectory meodeling and modification framework for collaborative robots using PLYDS and LLMs.
+It improves similarity to human motion while remaining easy to use for non-experts.
+This approach enhances practical usability, and future work will explore deployment on mobile manipulators for outdoor sweeping tasks.
 
 ## Figures
 
